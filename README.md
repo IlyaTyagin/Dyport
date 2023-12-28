@@ -1,7 +1,9 @@
-# Dyport: Dynamic Importance-based Hypothesis Generation Benchmarking Technique
+# Dyport: Dynamic Importance-based Biomedical Hypothesis Generation Benchmarking Technique
 
 ## Overview:
 Dyport is a novel benchmarking framework for evaluating biomedical hypothesis generation systems. Utilizing curated datasets, our approach tests these systems under realistic conditions, enhancing the relevance of our evaluations. We integrate knowledge from the curated databases into a dynamic graph, accompanied by a method to quantify discovery importance. This not only assesses hypothesis accuracy but also their potential impact in biomedical research which significantly extends traditional link prediction benchmarks. Applicability of our benchmarking process is demonstrated on several link prediction systems applied on biomedical semantic knowledge graphs. Being flexible, our benchmarking system is designed for broad application in hypothesis generation quality verification, aiming to expand the scope of scientific discovery within the biomedical research community.
+
+Arxiv preprint link: https://arxiv.org/abs/2312.03303 
 
 # Data
 Full benchmark data is available here: [Google Drive](https://drive.google.com/drive/folders/1tngJ2BU5MmIyHCoyyIkPLLCUEb-WHjI1)
