@@ -97,7 +97,7 @@ Next columns represent the importance components:
 
 The last column `IMP_manh` is a final combined importance score (a number between 0 and 1).
 
-Note: the importance components described above are the ones we reported in our [paper](https://arxiv.org/abs/2312.03303). If you want to use your own custom component(s), you can calculate them for every connection (alongside already existing components) and simply add them to the list. `IMP_manh` should be recalculated accordingly at the end to get the final combined importance score for every connection.
+Note: the importance components described above are the ones we reported in our [paper](https://arxiv.org/abs/2312.03303). If you want to use your own custom component(s), you can calculate them for every connection (alongside already existing components) and simply add them to the list. `IMP_manh` should be recalculated accordingly at the end to get the final combined importance score for every connection. Please refer to [this illustrated notebook](https://github.com/IlyaTyagin/Dyport/blob/main/04_models_evaluation_code/e09_imp_vs_perf.ipynb), part - `Calculating merged importance metric`.
 
 # Proposed Use Case
 
