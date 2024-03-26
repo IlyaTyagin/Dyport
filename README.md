@@ -99,10 +99,14 @@ The last column `IMP_manh` is a final combined importance score (a number betwee
 
 Note: the importance components described above are the ones we reported in our [paper](https://arxiv.org/abs/2312.03303). If you want to use your own custom component(s), you can calculate them for every connection (alongside already existing components) and simply add them to the list. `IMP_manh` should be recalculated accordingly at the end to get the final combined importance score for every connection.
 
-# Use Case
+# Proposed Use Case
 
 We shared the output numbers for every model we tested (for both positive and negative samples) and then we computed ROC AUC scores based on different stratification strategies. 
-If you would like to test your own model, download a table `all_model_scores_test_<YEAR>.csv` from [Google Drive](https://drive.google.com/drive/folders/1tngJ2BU5MmIyHCoyyIkPLLCUEb-WHjI1), where `<YEAR>` is the year of interest, compute your model output and calculate ROC AUC score with, for example, [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html).
+
+If you would like to use the benchmark, this might be a course of actions:
+1. Train your model. The model should accept two UMLS terms as input and output a number indicating the likelihood of two terms being connected. The training data should come from scientific publications (or relevant literature)  prior to the testing timestamp `<YEAR>`.
+2. Download a table `all_model_scores_test_<YEAR>.csv` from [Google Drive](https://drive.google.com/drive/folders/1tngJ2BU5MmIyHCoyyIkPLLCUEb-WHjI1), where `<YEAR>` represents the year of interest and indicates the timestamp when the associations first appeared in the literature.
+3. Compute your model output for associations from step 2 and calculate ROC AUC score with, for example, [this scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html).
 
 # Acknowledgements
 
