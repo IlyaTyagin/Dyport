@@ -97,6 +97,13 @@ Next columns represent the importance components:
 
 The last column `IMP_manh` is a final combined importance score (a number between 0 and 1).
 
+Note: the importance components described above are the ones we reported in our [paper](https://arxiv.org/abs/2312.03303). If you want to use your own custom component(s), you can calculate them for every connection (alongside already existing components) and simply add them to the list. `IMP_manh` should be recalculated accordingly at the end to get the final combined importance score for every connection.
+
+# Use Case
+
+We shared the output numbers for every model we tested (for both positive and negative samples) and then we computed ROC AUC scores based on different stratification strategies. 
+If you would like to test your own model, download a table `all_model_scores_test_<YEAR>.csv` from [Google Drive](https://drive.google.com/drive/folders/1tngJ2BU5MmIyHCoyyIkPLLCUEb-WHjI1), where `<YEAR>` is the year of interest, compute your model output and calculate ROC AUC score with, for example, [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html).
+
 # Acknowledgements
 
 This research was supported by NIH award #R01DA054992. The computational experiments were supported in part through the use of DARWIN computing system: DARWIN - A Resource for Computational and Data-intensive Research at the University of Delaware and in the Delaware Region, which is supported by NSF Grant #1919839.
