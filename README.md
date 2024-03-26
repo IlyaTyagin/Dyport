@@ -114,6 +114,8 @@ Dataset time split:
 - test: 2016
 - importance: 2022
 
+Table with ROC AUC scores based on Importance stratification: 
+
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
