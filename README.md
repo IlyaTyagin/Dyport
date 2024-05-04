@@ -97,7 +97,7 @@ Next columns represent the importance components:
 
 The last column `IMP_manh` is a final combined importance score (a number between 0 and 1).
 
-Note: the importance components described above are the ones we reported in our [paper](https://arxiv.org/abs/2312.03303). If you want to use your own custom component(s), you can calculate them for every connection (alongside already existing components) and simply add them to the list. `IMP_manh` should be recalculated accordingly at the end to get the final combined importance score for every connection.
+Note: the importance components described above are the ones we reported in our [paper](https://arxiv.org/abs/2312.03303). If you want to use your own custom component(s), you can calculate them for every connection (alongside already existing components) and simply add them to the list. `IMP_manh` should be recalculated accordingly at the end to get the final combined importance score for every connection. Please refer to [this illustrated notebook](https://github.com/IlyaTyagin/Dyport/blob/main/04_models_evaluation_code/e09_imp_vs_perf.ipynb), part - `Calculating merged importance metric`.
 
 # Proposed Use Case
 
@@ -107,6 +107,59 @@ If you would like to use the benchmark, this might be a course of actions:
 1. Train your model. The model should accept two UMLS terms as input and output a number indicating the likelihood of two terms being connected. The training data should come from scientific publications (or relevant literature)  prior to the testing timestamp `<YEAR>`.
 2. Download a table `all_model_scores_test_<YEAR>.csv` from [Google Drive](https://drive.google.com/drive/folders/1tngJ2BU5MmIyHCoyyIkPLLCUEb-WHjI1), where `<YEAR>` represents the year of interest and indicates the timestamp when the associations first appeared in the literature.
 3. Compute your model output for associations from step 2 and calculate ROC AUC score with, for example, [this scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html).
+
+# Current leaderboard 
+Dataset time split:
+- train: 2015
+- test: 2016
+- importance: 2022
+
+Table with ROC AUC scores based on Importance stratification: 
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AGATHA</th>
+      <th>DistMult</th>
+      <th>Node2Vec</th>
+      <th>HolE</th>
+      <th>ComplEx</th>
+      <th>TransE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Low importance ( < 0.41)</th>
+      <td>0.774</td>
+      <td>0.760</td>
+      <td>0.755</td>
+      <td>0.623</td>
+      <td>0.577</td>
+      <td>0.555</td>
+    </tr>
+    <tr>
+      <th>Medium importance (0.41 $\leq$ $I_t$ $\leq$ 0.53)</th>
+      <td>0.698</td>
+      <td>0.674</td>
+      <td>0.666</td>
+      <td>0.588</td>
+      <td>0.559</td>
+      <td>0.541</td>
+    </tr>
+    <tr>
+      <th>High importance ( > 0.53)</th>
+      <td>0.638</td>
+      <td>0.623</td>
+      <td>0.603</td>
+      <td>0.566</td>
+      <td>0.551</td>
+      <td>0.533</td>
+    </tr>
+  </tbody>
+</table>
+
+Want to upload your results? Open an issue on GitHub! Or reach out to me via email: tyagin at udel dot edu
 
 # Acknowledgements
 
